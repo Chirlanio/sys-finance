@@ -7,7 +7,6 @@ import {
   DialogPanel,
   DialogTitle,
 } from "@headlessui/react";
-import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import { PlusCircle } from "phosphor-react";
 
 export default function Modal() {
