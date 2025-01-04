@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import {
   Dialog,
   DialogBackdrop,
@@ -8,10 +7,10 @@ import {
   DialogTitle,
 } from "@headlessui/react";
 import { PlusCircle } from "phosphor-react";
+import Input from "../Input/Input";
 
-export default function Modal() {
-  const [open, setOpen] = useState(true);
-
+/* eslint-disable react/prop-types */
+export default function Modal({ open, setOpen }) {
   return (
     <Dialog open={open} onClose={setOpen} className="relative z-10">
       <DialogBackdrop
@@ -38,21 +37,8 @@ export default function Modal() {
                     Novo Produto
                   </DialogTitle>
                   <div className="flex flex-col mt-2 gap-4">
-                    <div className="w-full flex flex-col">
-                      <label htmlFor="">Nome do produto</label>
-                      <input
-                        className="border border-[#118dc0] rounded-md px-4 py-2 outline-none"
-                        type="text"
-                        placeholder="Digite o nome do produto"
-                      />
-                    </div>
-                    <div className="w-full flex flex-col">
-                      <label htmlFor="">Preço do produto</label>
-                      <input
-                        className="border border-[#118dc0] rounded-md px-4 py-2 outline-none"
-                        type="text"
-                      />
-                    </div>
+                    <Input title={"Nome do produto"} id="product" />
+                    <Input title={"Preço"} id="price"/>
                   </div>
                 </div>
               </div>
