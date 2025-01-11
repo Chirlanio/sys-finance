@@ -19,7 +19,7 @@ export default function Products() {
     searchDatas();
   }, []);
 
-  console.log(products);
+  //console.log(products);
 
   return (
     <main>

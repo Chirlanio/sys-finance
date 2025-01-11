@@ -37,8 +37,8 @@ export default function Modal({ open, setOpen }) {
                     Novo Produto
                   </DialogTitle>
                   <div className="flex flex-col mt-2 gap-4">
-                    <Input title={"Nome do produto"} id="product" />
-                    <Input title={"Preço"} id="price"/>
+                    <Input title={"Nome do produto"} id="product" onChange={()=>{}}/>
+                    <Input title={"Preço"} id="price" />
                   </div>
                 </div>
               </div>

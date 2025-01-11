@@ -2,7 +2,7 @@
 import { NotePencil, Trash } from "phosphor-react";
 
 export default function Table({ products }) {
-  console.log(products);
+  //console.log(products);
   return (
     <table className="w-full text-center">
       <thead className="bg-[#f7fbfd] text-gray-400 border-b">
@@ -22,7 +22,7 @@ export default function Table({ products }) {
             >
               <td className="py-2">{product.id}</td>
               <td className="py-2">{product.name}</td>
-              <td className="py-2">R$ {product.price}</td>
+              <td className="py-2">R$ {product.price},00</td>
               <td className="py-2">
                 <div className="flex items-center justify-center gap-1">
                   <div className="bg-[#118dc0] border-none rounded-md p-2 text-white cursor-pointer hover:bg-[#426b7b] transition-all duration-300">
