@@ -3,7 +3,7 @@ import axios from "axios";
 import { NotePencil, Trash } from "phosphor-react";
 import { useNavigate } from "react-router-dom";
 
-export default function Table({ products }) {
+export default function Table({ products, openModalUpdate }) {
   //console.log(products);
   const navigate = useNavigate();
 
@@ -11,6 +11,10 @@ export default function Table({ products }) {
     await axios.delete(`http://localhost:3000/products/${id}`);
     navigate(0);
   }
+
+  // function openModalUpdate() {
+  //   openModalUpdate;
+  // }
 
   return (
     <table className="w-full text-center">
@@ -34,7 +38,10 @@ export default function Table({ products }) {
               <td className="py-2">R$ {product.price},00</td>
               <td className="py-2">
                 <div className="flex items-center justify-center gap-1">
-                  <div className="bg-[#118dc0] border-none rounded-md p-2 text-white cursor-pointer hover:bg-[#426b7b] transition-all duration-300">
+                  <div
+                    onClick={()=> openModalUpdate(product)}
+                    className="bg-[#118dc0] border-none rounded-md p-2 text-white cursor-pointer hover:bg-[#426b7b] transition-all duration-300"
+                  >
                     <NotePencil size={16} weight="bold" />
                   </div>
                   <div

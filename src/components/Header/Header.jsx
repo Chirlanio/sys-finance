@@ -1,9 +1,13 @@
 /* eslint-disable react/prop-types */
 import { Plus } from "phosphor-react";
 
-export default function Header({ open, setOpen }) {
+export default function Header({ open, setOpen, setSearchInput }) {
   function handleOpenModal() {
     setOpen(!open);
+  }
+
+  function handleChangeSearch(event) {
+    setSearchInput(event.target.value);
   }
 
   return (
@@ -14,6 +18,7 @@ export default function Header({ open, setOpen }) {
       <div className="flex items-center gap-2">
         <input
           type="text"
+          onChange={handleChangeSearch}
           className="border border-[#118dc0] rounded-md px-4 py-1 placeholder:text-[#118dc0] outline-none"
           placeholder="Pesquise o Produtos"
         />

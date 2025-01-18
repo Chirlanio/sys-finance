@@ -16,7 +16,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="w-full h-screen bg-[#1e1e1e] text-white flex">
+    <div className="w-full h-screen bg-[#4337c8] text-white flex">
       <div className="w-[50%] h-full flex justify-center items-center flex-col">
         <div className="w-full h-[20%] flex justify-center items-center">
           <h1 className="text-[30px] font-bold text-[#cccccc]">
@@ -29,7 +29,7 @@ export default function LoginPage() {
         </div>
       </div>
       <div className="w-[50%] h-full flex justify-center items-center">
-        <div className="w-[60%] h-[50%] bg-[#292929] rounded-xl">
+        <div className="w-[60%] h-[50%] bg-[#5555d6] rounded-xl">
           <div className="w-full h-[20%] flex items-center justify-center">
             <h1 className="text-[#cccccc] font-bold text-[30px]">LOGIN</h1>
           </div>
@@ -65,7 +65,7 @@ export default function LoginPage() {
           <div className="w-full h-[20%] flex justify-center">
             <button
               onClick={clickLogin}
-              className="w-[80%] h-[35px] rounded-lg bg-[#cccccc] text-[#1e1e1e] font-bold hover:bg-[#969595]"
+              className="w-[80%] h-[35px] rounded-lg bg-[#cccccc] text-[#7875d2] font-bold hover:bg-[#aba9e1] transition-all hover:text-white"
             >
               Acessar
             </button>

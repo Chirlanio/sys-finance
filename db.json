@@ -1,14 +1,24 @@
 {
   "products": [
     {
-      "id": "0def",
-      "name": "Cadeira",
-      "price": "350"
-    },
-    {
       "id": "f4fb",
       "name": "Placa de vídeo",
       "price": "1900"
+    },
+    {
+      "id": "7ef6",
+      "name": "Mouse",
+      "price": "149"
+    },
+    {
+      "id": "f7c1",
+      "name": "Teclado Mecânico",
+      "price": "499"
+    },
+    {
+      "id": "12ee",
+      "name": "Gabinete",
+      "price": "699"
     }
   ]
 }
