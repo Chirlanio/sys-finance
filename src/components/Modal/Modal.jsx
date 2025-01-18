@@ -8,9 +8,29 @@ import {
 } from "@headlessui/react";
 import { PlusCircle } from "phosphor-react";
 import Input from "../Input/Input";
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
 export default function Modal({ open, setOpen }) {
+  const navigate = useNavigate();
+  const [product, setProduct] = useState({});
+
+  //console.log(product);
+
+  function handleChange(event) {
+    setProduct({
+      ...product,
+      [event.target.id]: event.target.value,
+    });
+  }
+
+  async function handleCreateNewProduct() {
+    await axios.post("http://localhost:3000/products", product);
+    navigate(0);
+  }
+
   return (
     <Dialog open={open} onClose={setOpen} className="relative z-10">
       <DialogBackdrop
@@ -37,8 +57,16 @@ export default function Modal({ open, setOpen }) {
                     Novo Produto
                   </DialogTitle>
                   <div className="flex flex-col mt-2 gap-4">
-                    <Input title={"Nome do produto"} id="product" onChange={()=>{}}/>
-                    <Input title={"Preço"} id="price" />
+                    <Input
+                      title={"Nome do produto"}
+                      id="name"
+                      onChange={(event) => handleChange(event)}
+                    />
+                    <Input
+                      title={"Preço"}
+                      id="price"
+                      onChange={(event) => handleChange(event)}
+                    />
                   </div>
                 </div>
               </div>
@@ -46,14 +74,13 @@ export default function Modal({ open, setOpen }) {
             <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
               <button
                 type="button"
-                onClick={() => setOpen(false)}
+                onClick={handleCreateNewProduct}
                 className="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto"
               >
                 Salvar
               </button>
               <button
                 type="button"
-                data-autofocus
                 onClick={() => setOpen(false)}
                 className="mt-3 inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-red-500 sm:mt-0 sm:w-auto"
               >

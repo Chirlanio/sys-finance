@@ -1,8 +1,17 @@
 /* eslint-disable react/prop-types */
+import axios from "axios";
 import { NotePencil, Trash } from "phosphor-react";
+import { useNavigate } from "react-router-dom";
 
 export default function Table({ products }) {
   //console.log(products);
+  const navigate = useNavigate();
+
+  async function handleDelete(id) {
+    await axios.delete(`http://localhost:3000/products/${id}`);
+    navigate(0);
+  }
+
   return (
     <table className="w-full text-center">
       <thead className="bg-[#f7fbfd] text-gray-400 border-b">
@@ -28,7 +37,10 @@ export default function Table({ products }) {
                   <div className="bg-[#118dc0] border-none rounded-md p-2 text-white cursor-pointer hover:bg-[#426b7b] transition-all duration-300">
                     <NotePencil size={16} weight="bold" />
                   </div>
-                  <div className="bg-[#c01111] border-none rounded-md p-2 text-white cursor-pointer hover:bg-[#9e2828] transition-all duration-300">
+                  <div
+                    onClick={() => handleDelete(product.id)}
+                    className="bg-[#c01111] border-none rounded-md p-2 text-white cursor-pointer hover:bg-[#9e2828] transition-all duration-300"
+                  >
                     <Trash size={16} weight="bold" />
                   </div>
                 </div>

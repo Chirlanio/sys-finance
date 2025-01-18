@@ -1,7 +1,14 @@
 {
   "products": [
-    { "id": "1", "name": "Mouse", "price": 35 },
-    { "id": "2", "name": "Teclado", "price": 249 },
-    { "id": "3", "name": "SSD", "price": 320}
+    {
+      "id": "0def",
+      "name": "Cadeira",
+      "price": "350"
+    },
+    {
+      "id": "f4fb",
+      "name": "Placa de vídeo",
+      "price": "1900"
+    }
   ]
 }
