@@ -14,10 +14,12 @@ export default function Products() {
 
   // console.log(searchInput);
   const [products, setProducts] = useState([]);
+  const [productsFiltered, setProductsFiltered] = useState([]);
 
   async function searchDatas() {
     const response = await axios.get("http://localhost:3000/products");
 
+    setProductsFiltered(response.data);
     setProducts(response.data);
   }
 
@@ -26,17 +28,13 @@ export default function Products() {
       product.name.toLowerCase().includes(searchInput.toLowerCase())
     );
 
-    if (filteredProducts.length > 0) {
-      setProducts(filteredProducts);
-    }
-
-    if (filteredProducts.length === "") {
-      setProducts(products);
-    }
+    setProductsFiltered(filteredProducts);
+    console.log(filteredProducts);
   }
 
   useEffect(() => {
     handleFilterProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchInput]);
 
   useEffect(() => {
@@ -48,12 +46,13 @@ export default function Products() {
     setOpenModalUpdate(true);
   }
 
-  // console.log(selectedProduct);
-
   return (
     <main>
       <Header open={open} setOpen={setOpen} setSearchInput={setSearchInput} />
-      <Table products={products} openModalUpdate={handleUpdateProduct} />
+      <Table
+        products={productsFiltered}
+        openModalUpdate={handleUpdateProduct}
+      />
       <Modal open={open} setOpen={setOpen} />
       <ModalUpdate
         open={openModalUpdate}
